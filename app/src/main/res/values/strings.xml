@@ -6,6 +6,10 @@
     <string name="false_button">Ложь</string>
     <string name="correct_toast">Верно!</string>
     <string name="incorrect_toast">Неправильно!</string>
+    <string name="warning_text">Вы уверены?</string>
+    <string name="show_answer_button">Показать ответ</string>
+    <string name="cheat_button">Cheat!</string>
+    <string name="judgment_toast">Жульничать плохо.</string>
     <string name="correct_results_text">"Количество верных ответов: %d из %d"</string>
     <string name="question_australia">Канберра - столица Австралии</string>
     <string name="question_mideast">Суэцкий канал соединяет Красное море и Индийский океан</string>
