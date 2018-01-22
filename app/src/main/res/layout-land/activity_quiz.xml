@@ -31,34 +31,11 @@
             android:text="@string/false_button" />
     </LinearLayout>
 
-    <Button
+    <ImageButton
         android:id="@+id/cheat_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center_vertical|center_horizontal"
-        android:text="@string/cheat_button"/>
-
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom|center_horizontal"
-        android:orientation="horizontal">
-
-        <ImageButton
-            android:id="@+id/previous_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:contentDescription="@string/previous_button"
-            android:layout_gravity="bottom|start"
-            android:src="@drawable/arrow_left" />
-
-        <ImageButton
-            android:id="@+id/next_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:contentDescription="@string/next_button"
-            android:layout_gravity="bottom|end"
-            android:src="@drawable/arrow_right" />
-    </LinearLayout>
+        android:contentDescription="@string/cheat_button"
+        android:src="@drawable/ic_help_outline_black_24dp"/>
 
 </LinearLayout>

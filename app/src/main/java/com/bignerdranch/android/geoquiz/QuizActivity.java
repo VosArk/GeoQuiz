@@ -24,9 +24,7 @@ public class QuizActivity extends AppCompatActivity {
     private final static int REQUEST_CODE_CHEAT = 0;
     private Button mTrueButton;
     private Button mFalseButton;
-    private Button mCheatButton;
-    private ImageButton mNextButton;
-    private ImageButton mPreviousButton;
+    private ImageButton mCheatButton;
     private TextView mQuestionTextView;
 
     private Question[] mQuestionBank = new Question[]{
@@ -34,6 +32,8 @@ public class QuizActivity extends AppCompatActivity {
             new Question(R.string.question_america, true),
             new Question(R.string.question_asia, true),
             new Question(R.string.question_australia, true),
+            new Question(R.string.question_antarctica, true),
+            new Question(R.string.question_oceans, false),
             new Question(R.string.question_mideast, false)
     };
 
@@ -63,21 +63,18 @@ public class QuizActivity extends AppCompatActivity {
         updateQuestion();
 
         mTrueButton = findViewById(R.id.true_button);
-        mTrueButton.setOnClickListener(view -> checkAnswer(true));
-
-        mFalseButton = findViewById(R.id.false_button);
-        mFalseButton.setOnClickListener(view -> checkAnswer(false));
-
-        mNextButton = findViewById(R.id.next_button);
-        mNextButton.setOnClickListener(view -> {
+        mTrueButton.setOnClickListener(view -> {
+            checkAnswer(true);
             mCurrentIndex = (mCurrentIndex + 1) % mQuestionBank.length;
             mIsCheater = false;
             updateQuestion();
         });
 
-        mPreviousButton = findViewById(R.id.previous_button);
-        mPreviousButton.setOnClickListener(view -> {
-            mCurrentIndex = (mCurrentIndex == 0) ? mQuestionBank.length - 1 : mCurrentIndex - 1;
+        mFalseButton = findViewById(R.id.false_button);
+        mFalseButton.setOnClickListener(view -> {
+            checkAnswer(false);
+            mCurrentIndex = (mCurrentIndex + 1) % mQuestionBank.length;
+            mIsCheater = false;
             updateQuestion();
         });
 
@@ -150,11 +147,18 @@ public class QuizActivity extends AppCompatActivity {
             mQuestionTextView.setText(question);
         } else {
             mQuestionTextView.setText(String.format(getString(R.string.correct_results_text), mCorrectAnswersCount, mQuestionBank.length));
-            mNextButton.setEnabled(false);
-            mPreviousButton.setEnabled(false);
             mTrueButton.setEnabled(false);
             mFalseButton.setEnabled(false);
-            mCheatButton.setEnabled(false);
+            mCheatButton.setImageResource(R.drawable.ic_cached_black_24dp);
+            mCheatButton.setOnClickListener((view) -> {
+                Intent i = getBaseContext().getPackageManager()
+                        .getLaunchIntentForPackage(getBaseContext().getPackageName());
+                if (i != null) {
+                    i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                }
+                finish();
+                startActivity(i);
+            });
         }
     }
 

@@ -12,6 +12,8 @@
     <string name="judgment_toast">Жульничать плохо.</string>
     <string name="correct_results_text">"Количество верных ответов: %d из %d"</string>
     <string name="question_australia">Канберра - столица Австралии</string>
+    <string name="question_antarctica">В Антарктиде нет рек</string>
+    <string name="question_oceans">Индийский океан - самый большой на Земле</string>
     <string name="question_mideast">Суэцкий канал соединяет Красное море и Индийский океан</string>
     <string name="question_america">Амазонка - самая длинаая река в Америке</string>
     <string name="question_africa">Устье реки Нил находится в Египте</string>
